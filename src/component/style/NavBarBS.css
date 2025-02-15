@@ -1,0 +1,132 @@
+/* Navbar base styles */
+.custom-navbar {
+  background: linear-gradient(135deg, #00bf8f 0%, #001510 100%) !important;
+  backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Remove redundant properties */
+.custom-navbar a {
+  color: white !important;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-space {
+  height: 56px;
+}
+
+/* Combine similar transitions */
+.nav-link, .navbar-brand {
+  transition: all 0.3s ease;
+}
+
+/* Active link styles - combined selectors */
+.active-link {
+  color: #bcfa9f !important;
+  font-weight: bold;
+  position: relative;
+  text-shadow: 0 0 10px rgba(188, 250, 159, 0.5);
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #bcfa9f;
+  box-shadow: 0 0 10px rgba(188, 250, 159, 0.5);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Navigation link styles */
+.nav-link {
+  margin: 0 15px;
+  padding: 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effects */
+.nav-link:hover {
+  color: #bcfa9f !important;
+  transform: translateY(-2px);
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #bcfa9f, transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+  transform: translateX(0);
+}
+
+/* Brand styles */
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Dark theme */
+#dark .custom-navbar {
+  background: linear-gradient(135deg, #1a2a6c 0%, #1e56aa 50%, #1234f3 100%) !important;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 460px) {
+    .navbar-toggler { 
+        display: block; 
+    }
+
+    .react-switch {
+        margin: 0.5rem auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .custom-navbar {
+        padding: 5px;
+    }
+
+    .custom-navbar a {
+        font-size: 16px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem !important;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 0.5rem !important;
+    }
+}
+

@@ -1,0 +1,263 @@
+/* Global variables for colors, gradients and effects */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+  --dark-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --border-light: rgba(99, 102, 241, 0.5);
+  --border-dark: rgba(147, 197, 253, 0.6);
+  --success-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  --danger-gradient: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Global transition effects for main components */
+.hero-section,
+.testimonial-card,
+.info-card {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* Hero section styling - main landing area */
+.hero-section {
+  background: var(--primary-gradient);
+  padding: 3rem;
+  border-radius: 30px;
+  width: 80%;
+  margin: 2rem auto;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-light);
+}
+
+.hero-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Image carousel styling and effects */
+.carousel {
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 3px solid var(--border-light);
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+/* Theme-specific styles */
+/* Dark theme colors and effects */
+.dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .hero-section,
+.dark .carousel,
+.dark .accordion,
+.dark .info-card {
+  border-color: var(--border-dark);
+}
+
+.dark .card,
+.dark .accordion-button,
+.dark .accordion-body {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.dark .testimonial-card {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border: 3px solid var(--border-dark) !important;
+}
+
+.dark .testimonial-card:hover {
+  border-color: var(--border-dark-hover) !important;
+}
+
+.dark .info-card {
+  box-shadow: var(--shadow-dark);
+}
+
+.dark .accordion {
+  border-color: var(--border-dark);
+}
+
+/* Light theme colors and effects */
+.light {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.light .testimonial-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--shadow-light);
+  border: 3px solid var(--border-light) !important;
+}
+
+/* Testimonial cards styling */
+.testimonial-card {
+  transition: all 0.3s ease;
+  border: 3px solid var(--border-light) !important;
+  box-shadow: var(--shadow-light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-avatar {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.testimonial-role {
+  font-size: 0.9rem;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-light-hover) !important;
+  box-shadow: var(--shadow-dark);
+}
+
+/* Info cards for displaying statistics/features */
+.info-card {
+  transition: all 0.3s ease;
+  border-width: 3px !important;
+  box-shadow: var(--shadow-light);
+  border-radius: 16px !important;
+}
+
+.info-card.bg-success {
+  background: var(--success-gradient) !important;
+  border: none;
+}
+
+.info-card.bg-danger {
+  background: var(--danger-gradient) !important;
+  border: none;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
+  filter: brightness(1.1);
+}
+
+.info-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.info-card .card-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Animation keyframes and effects */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.hero-section p {
+  animation-delay: 0.2s;
+}
+
+.hero-section .btn {
+  animation-delay: 0.4s;
+}
+
+/* Responsive design breakpoints */
+/* Tablet and smaller devices */
+@media screen and (max-width: 768px) {
+  .hero-section {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .testimonials-container {
+    margin: 0 -10px;
+  }
+
+  .testimonial-card {
+    margin: 0 10px 20px;
+    padding: 1.25rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .testimonial-avatar {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 480px) {
+  .hero-section {
+    width: 95%;
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .carousel-caption {
+    padding: 1rem;
+  }
+
+  .testimonial-card {
+    margin: 0 5px 20px;
+    padding: 1rem;
+  }
+
+  .testimonial-avatar {
+    font-size: 1.75rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-name {
+    font-size: 1rem;
+  }
+
+  .testimonial-role {
+    font-size: 0.85rem;
+  }
+}

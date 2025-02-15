@@ -1,0 +1,135 @@
+/* Base styles */
+.card {
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.card.editing {
+    height: auto;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Layout components */
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.editing .card-body {
+    height: auto;
+    width: 100%;
+    background: inherit;
+    border-radius: inherit;
+}
+
+/* Button containers */
+.action-buttons,
+.edit-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 10px;
+}
+
+.edit-buttons {
+    justify-content: flex-start;
+}
+
+/* Button base styles */
+.action-buttons .btn,
+.edit-buttons .btn {
+    flex: 0 0 auto;
+    min-width: auto;
+    position: relative;
+}
+
+/* Specific button sizing */
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.edit-buttons .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Tooltip system */
+.tooltip-custom {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.tooltip-custom::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent;
+}
+
+/* Grid Layout System */
+.items-container {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Desktop - 3 columns */
+@media (min-width: 993px) {
+    .items-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 481px) and (max-width: 992px) {
+    .items-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile - 1 column and adjustments */
+@media (max-width: 480px) {
+    .items-container { grid-template-columns: 1fr; }
+    
+    .card-body { padding: 0.75rem; }
+    .card-title { font-size: 0.9rem; }
+    .card-text { font-size: 0.8rem; }
+    
+    .action-buttons,
+    .edit-buttons {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .btn {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn svg { font-size: 1.2rem; }
+}
+
+/* Hover effects */
+.action-buttons .btn:hover .tooltip-custom,
+.edit-buttons .btn:hover .tooltip-custom {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,6 @@
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: #343a40;
+  margin-top: auto;
+}

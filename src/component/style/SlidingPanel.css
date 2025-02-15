@@ -1,0 +1,29 @@
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sliding-panel-right {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.sliding-panel-left {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.sliding-panel.show.sliding-panel-right {
+    transform: translateX(0);
+}
+
+.sliding-panel.show.sliding-panel-left {
+    transform: translateX(0);
+}
